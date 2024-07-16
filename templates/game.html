@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+       .container {
+            width: 50%;
+            margin: 40px auto;
+            text-align: center;
+        }
+       .board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+       .cell {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+       .cell:hover {
+            background-color: #f7f7f7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tic Tac Toe</h1>
+        <form action="{{ url_for('make_move') }}" method="post">
+            <input type="hidden" name="game_id" value="{{ game_id }}">
+            <div class="board">
+                {% for i in range(9) %}
+                    <div class="cell">
+                        <input type="submit" name="move" value="{{ i + 1 }}" class="btn">
+                        {% if board[i]!= " " %}
+                            <span style="color: {{ "green" if board[i] == "X" else "red" }}">{{ board[i] }}</span>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </form>
+        <p>Current player: {{ current_player }}</p>
+        <p>Turn {{ player_turn }}</p>
+    </div>
+</body>
+</html>

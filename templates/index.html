@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 50%;
+            margin: 40px auto;
+            text-align: center;
+        }
+        .form-control {
+            width: 50%;
+            padding: 10px;
+            font-size: 18px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tic Tac Toe</h1>
+        <form action="/" method="post">
+            <label for="player1_name">Player 1's name:</label>
+            <input type="text" id="player1_name" name="player1_name" class="form-control"><br><br>
+            <label for="player2_name">Player 2's name:</label>
+            <input type="text" id="player2_name" name="player2_name" class="form-control"><br><br>
+            <input type="submit" value="Start Game" class="btn">
+        </form>
+    </div>
+</body>
+</html>

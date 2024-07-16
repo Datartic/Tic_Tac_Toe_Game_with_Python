@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Game Over!</title>
+    <style>
+      body {
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      h1 {
+        color: #00698f;
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 24px;
+        margin-bottom: 40px;
+      }
+     .winner {
+        color: #008000;
+        font-weight: bold;
+      }
+     .tie {
+        color: #808080;
+        font-weight: bold;
+      }
+     .play-again {
+        background-color: #4CAF50;
+        color: #ffffff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+     .play-again:hover {
+        background-color: #3e8e41;
+      }
+     .game-over-board {
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin: 40px auto; /* Add this line to center the board */
+        width: 300px; /* Add this line to set the width of the board */
+        display: flex; /* Add this line to center the contents inside the board */
+        justify-content: center; /* Add this line to center the contents inside the board */
+        align-items: center; /* Add this line to center the contents inside the board */
+      }
+     .game-over-cell {
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+      }
+     .game-over-cell.x {
+        background-color: #ff69b4;
+        color: #fff;
+      }
+     .game-over-cell.o {
+        background-color: #33cc33;
+        color: #fff;
+      }
+     .game-over-cell.win {
+        background-color: #ffff00;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Game Over!</h1>
+    <div class="game-over-board">
+      <table>
+        <tr>
+          <td class="game-over-cell" style="text-align: center;">{{ board[0] if board[0] else "&nbsp;" }}</td>
+          <td class="game-over-cell" style="text-align: center;">{{ board[1] if board[1] else "&nbsp;" }}</td>
+          <td class="game-over-cell" style="text-align: center;">{{ board[2] if board[2] else "&nbsp;" }}</td>
+        </tr>
+        <tr>
+          <td class="game-over-cell" style="text-align: center;">{{ board[3] if board[3] else "&nbsp;" }}</td>
+          <td class="game-over-cell" style="text-align: center;">{{ board[4] if board[4] else "&nbsp;" }}</td>
+          <td class="game-over-cell" style="text-align: center;">{{ board[5] if board[5] else "&nbsp;" }}</td>
+        </tr>
+        <tr>
+          <td class="game-over-cell" style="text-align: center;">{{ board[6] if board[6] else "&nbsp;" }}</td>
+          <td class="game-over-cell" style="text-align: center;">{{ board[7] if board[7] else "&nbsp;" }}</td>
+          <td class="game-over-cell" style="text-align: center;">{{ board[8] if board[8] else "&nbsp;" }}</td>
+        </tr>
+      </table>
+    </div>
+    {% if winner == "Tie" %}
+      <p class="tie">The game has ended in a tie!</p>
+    {% else %}
+      <p class="winner">Congratulations, {{ username }} (Player {{ winner }}) has won the game!</p>
+    {% endif %}
+    <form action="{{ url_for('restart_game') }}" method="post">
+      <input type="hidden" name="game_id" value="{{ game_id }}">
+      <input type="submit" value="Play Again" class="play-again">
+    </form>
+  </body>
+<script>
+  // Add event listeners to the game cells
+  const cells = document.querySelectorAll('.game-over-cell');
+  cells.forEach((cell) => {
+    cell.addEventListener('click', (e) => {
+      // Prevent default behavior
+      e.preventDefault();
+    });
+  });
+</script>
+</body>
+</html>
