@@ -1,22 +1,22 @@
-#Tic Tac Toe Game
+# Tic Tac Toe Game
 A simple implementation of a Tic Tac Toe game using Flask and SQL Server.
 
-##Game Description
+## Game Description
 This game allows two players to play a game of Tic Tac Toe. The game is stored in a SQL Server database, and the game state is updated in real-time.
 
-##Features
+## Features
 Create a new game with two players
 Make moves on the game board
 Check for win conditions
 Display game over screen with winner or tie
 Restart the game
 
-##Technical Details
+## Technical Details
 Built using Flask web framework
 Uses SQL Server as the database
 Implements a simple game logic to check for win conditions
 
-##Getting Started
+## Getting Started
 Clone the repository
 Install the required dependencies
 Create a SQL Server database and update the connection details in the code
