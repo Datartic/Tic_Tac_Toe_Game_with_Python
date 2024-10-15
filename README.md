@@ -22,6 +22,9 @@ Install the required dependencies
 Create a SQL Server database and update the connection details in the code
 Run the application using python app.py
 Open a web browser and navigate to http://localhost:5000 to start playing the game
+Every move and win is recorded in the SQL Server. Additionally you can add more tables to define more context which can be later used for visualizations.
+![Uploading Screen Shot 2024-10-15 at 12.53.23 PM.png…]()
+
 
 ## Visualizations
 Check the GameStats table that is created in the SQL. To play around you can create another table with address details of the winners to get some cool visualizations like shown below
